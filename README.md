@@ -5,9 +5,9 @@
 - [Introduction](##Introduction)
 - [Installation](#Installation)
 - [Configuration](#Configuration)
-- [The Nix language](#The Nix language)
-- [Introduction to Home Manager](#)
-- [Introduction to Flakes]()
+- [The Nix language](#The-Nix-language)
+- [Home Manager](#Home-Manager)
+- [Flakes](#Flakes)
 
 ## Introduction
 
@@ -38,8 +38,8 @@ A quick guide to how i manually install is as follows:
 
 ## The Nix language
 
-## Introduction to Home Manager
+## Home Manager
 
-## Introduction to Flakes
+## Flakes
 
 
