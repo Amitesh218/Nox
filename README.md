@@ -5,8 +5,8 @@
 - [Introduction](##Introduction)
 - [Installation](#Installation)
 - [Configuration](#Configuration)
-- [Introduction to Nix language](#Introduction to Nix language)
-- [Introduction to Home Manager]()
+- [The Nix language](#The Nix language)
+- [Introduction to Home Manager](#)
 - [Introduction to Flakes]()
 
 ## Introduction
@@ -35,6 +35,8 @@ A quick guide to how i manually install is as follows:
 - Upon successful booting, you will be logged in as the user nixos, which usually has no password. Since the installation requires elevated privileges, you could proceed with the nixos user and use `sudo` whenever needed, or switch to root via the `sudo -i` command.
 
 ## Configuration
+
+## The Nix language
 
 ## Introduction to Home Manager
 
