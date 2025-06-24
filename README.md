@@ -12,7 +12,36 @@ ___
 
 ## Introduction
 
-*Coming soon...*
+**NixOS** is a Linux distribution built on top of the Nix package manager. It was developed to bring the power of *declarative configuration* and *functional system management* to the operating system level.
+
+---
+
+### ❄️ The NixOS Philosophy
+
+The philosophy of NixOS revolves around **reproducibility** and **stability**, aiming to provide a virtually *“unbreakable”* system through a **declarative** and **functional** approach to system management.
+
+In simpler terms, you can declare your **entire system** in just a few Nix configuration files — including:
+
+* System packages
+* Environment variables
+* Dotfiles and personal settings
+* Specific package versions
+* Even your hardware configuration
+
+This makes it possible to **replicate** your exact system on any machine with ease — ideal for backup, testing, or sharing your setup.
+
+---
+
+### ❄️ What Makes NixOS Different?
+
+Key points that set NixOS apart from traditional Linux distributions are:
+
+* **Declarative system config**: You describe *what* the system should look like, not *how* to get there.
+* **Atomic upgrades and rollbacks**: You can switch between system generations and undo changes safely.
+* **Reproducibility**: Your config can be version-controlled and deployed across machines.
+* **Isolated environments**: No accidental overwrites or “dependency hell.”
+* **Per-user packages**: Unlike traditional distros, Nix allows users to install packages **just for themselves**.
+* **Side-by-side versions**: Install multiple versions of the same package — useful for dev environments.
 
 ## Installation
 
@@ -245,7 +274,141 @@ After the installation completes successfully, you'll be asked to enter a new ro
 
 ## Configuration
 
-*Coming soon...*
+### ❄️ Tiers of NixOS Usage
+
+I like to classify NixOS usage into four increasing tiers of complexity (though you’re not required to follow them in order):
+
+1. **Base** – Standard configuration using `configuration.nix`
+2. **With Home Manager** – User-specific config manager for dotfiles and more
+3. **With Flakes** – Declarative, version-pinned systems and reproducible builds
+4. **With Home Manager + Flakes** – Fully modular, reproducible, and portable setup
+
+This section focuses on the **Base configuration**, while **Home Manager** and **Flakes** are covered later.
+
+---
+
+### ❄️ Base Configuration
+
+After a fresh install, your configuration is defined in:
+
+```
+/etc/nixos/configuration.nix
+/etc/nixos/hardware-configuration.nix
+```
+
+#### Example: `configuration.nix`
+
+```nix
+{ config, pkgs, ... }:
+
+{
+  # Import hardware settings from auto-generated file
+  imports = [ ./hardware-configuration.nix ];
+
+  # Enable systemd-boot bootloader (for EFI systems)
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Set your hostname (used for networking, prompts, etc.)
+  networking.hostName = "nixos";
+
+  # Set system timezone
+  time.timeZone = "Asia/Kolkata";
+
+  # Define a normal user named "alice"
+  users.users.alice = {
+    isNormalUser = true;                     # Not a system/root user
+    description = "Alice";                   # Optional description
+    extraGroups = [ "wheel" ];               # Grants sudo access
+    shell = pkgs.bash;                       # Sets default shell (e.g. bash, zsh)
+  };
+
+  # Define system-wide packages available to all users
+  environment.systemPackages = with pkgs; [
+    wget       # For downloading files
+    curl       # HTTP requests
+    git        # Version control
+    neofetch   # Show system info in terminal
+    htop       # Interactive process viewer
+  ];
+
+  # Enable X11 (graphical display server)
+  services.xserver.enable = true;
+
+  # Enable SDDM (Simple Desktop Display Manager) login screen
+  services.xserver.displayManager.sddm.enable = true;
+
+  # Enable KDE Plasma 5 as desktop environment
+  services.xserver.desktopManager.plasma5.enable = true;
+
+  # Enable audio support
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;         # PulseAudio sound server (legacy)
+
+  # Define the version of NixOS you're configuring against
+  # Important for compatibility with older or newer modules
+  system.stateVersion = "24.05";
+
+  # Declare a swap file (must also exist physically at /.swapfile)
+  swapDevices = [
+    { device = "/.swapfile"; }
+  ];
+}
+```
+
+#### Example: `hardware-configuration.nix`
+
+```nix
+{ config, lib, pkgs, ... }:
+
+{
+  # Define the root (/) file system
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/ROOT";   # Use the device labeled "ROOT"
+    fsType = "ext4";                      # Use ext4 filesystem
+  };
+
+  # Define the EFI boot partition (/boot)
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/BOOT";   # Use the device labeled "BOOT"
+    fsType = "vfat";                      # FAT32 is required for EFI systems
+  };
+
+  # Declare the swap file here (referenced during boot)
+  swapDevices = [
+    { device = "/.swapfile"; }
+  ];
+
+  # This file may also include:
+  # - GPU or driver config
+  # - File system mount options
+  # - Detected hardware modules (e.g. for Wi-Fi, SSDs, etc.)
+  # Avoid modifying it unless needed — NixOS regenerates it during config generation.
+}
+
+```
+The generated config file in your system probably has well put comments as well, so i'd suggest referring them too. For a detailed manual, there's always the wiki, both [official](https://nixos.org/manual/nixos/stable/) and [unofficial](https://nixos.wiki/) which are written by people much smarter than me.
+---
+
+### ❄️ Quick Guide to Nix Package Manager
+
+Here are some basic commands for managing packages on NixOS:
+
+| Task                          | Command                                |
+| ----------------------------- | -------------------------------------- |
+| Search for a package          | `nix search nixpkgs <name>`            |
+| Install a package (user-wide) | `nix-env -iA nixpkgs.<package>`        |
+| List user-installed packages  | `nix-env -q`                           |
+| Remove a package              | `nix-env -e <package>`                 |
+| Upgrade all user packages     | `nix-env -u '*'`                       |
+| Run a package temporarily     | `nix run nixpkgs#<package>`            |
+| Open a dev shell with deps    | `nix-shell -p <pkg1> <pkg2>`           |
+| Clean unused generations      | `sudo nix-collect-garbage -d`          |
+| Roll back system config       | `sudo nixos-rebuild switch --rollback` |
+
+> *Note:* With **flakes** (covered later), some of these commands change slightly — they become more declarative and consistent.
+
+---
 
 ## The Nix Language
 
@@ -261,4 +424,3 @@ After the installation completes successfully, you'll be asked to enter a new ro
 
 ---
 
-Let me know if you'd like help filling in the other sections or converting this to a `.nix`-based markdown setup for GitHub.
