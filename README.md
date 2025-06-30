@@ -591,7 +591,7 @@ in
 
 ---
 
-### 📘 Further Learning
+### Further Learning
 
 If you want to dive deeper into the language:
 
@@ -607,7 +607,7 @@ If you want to dive deeper into the language:
 *Coming soon...*
 
 ## Flakes
-
+
 *Coming soon...*
 
 ---
