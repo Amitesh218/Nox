@@ -17,7 +17,7 @@
 
       modules = [
         # Your main system config and hardware scan
-        ./hosts/nyx/configuration.nix
+        ./hosts/Nyx/configuration.nix
         # Removed the hardware configuration import cause configuration.nix already has imported it.
         # ./hosts/nyx/hardware-configuration.nix
 

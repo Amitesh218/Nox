@@ -22,19 +22,19 @@
   };
 
   # Example of copying a config file (like waybar styling)
-  xdg.configFile."waybar/config".source = ../../dotfiles/waybar/config;
-  xdg.configFile."waybar/style.css".source = ../../dotfiles/waybar/style.css;
+  # xdg.configFile."waybar/config".source = ../../dotfiles/waybar/config;
+  # xdg.configFile."waybar/style.css".source = ../../dotfiles/waybar/style.css;
 
   # Optionally enable GTK theming
   gtk = {
     enable = true;
     theme = {
       name = "Adwaita-dark";
-      package = pkgs.gnome.gnome-themes-extra;
+      package = pkgs.gnome-themes-extra;
     };
     iconTheme = {
       name = "Adwaita";
-      package = pkgs.gnome.adwaita-icon-theme;
+      package = pkgs.adwaita-icon-theme;
     };
   };
 
