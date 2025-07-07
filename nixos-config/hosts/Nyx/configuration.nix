@@ -91,6 +91,8 @@
     waybar
     gvfs
     hyprsunset
+    grim
+    slurp
   ];
 
   fonts = {
