@@ -117,6 +117,7 @@
     bibata-cursors
     qt6.qtwayland
     kdePackages.qt6ct
+    libsForQt5.qt5ct
   ];
 
   # Fonts
@@ -138,6 +139,11 @@
       monospace = [ "Fira Code Nerd Font" "JetBrains Mono" ];
     };
   };
+
+  environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qt6ct";      # Or "qt5ct" if using qt5ct instead
+  };
+
 
   system.stateVersion = "25.05";
 }
