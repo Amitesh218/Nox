@@ -1,0 +1,233 @@
+// Improved Waybar Configuration
+{
+    "layer": "top",
+    "position": "top",
+    //"height": 20,
+    "spacing": 6,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    
+    "modules-left": [
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        // "custom/updates",
+        "custom/wifi-menu", 
+        "network",
+        "pulseaudio",
+        "power-profiles-daemon",
+        "cpu",
+        "memory",
+        "temperature",
+        "backlight",
+        "battery",
+        "custom/notification-toggle",
+        "tray"
+    ],
+
+    // Workspaces for better workspace management
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "󰈹",
+            "2": "",
+            "3": "",
+            "4": "󰇮",
+            "5": "󰊢",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
+            "10": "󰐃"
+        },
+        "persistent-workspaces": {
+            "*": 5
+        },
+        "on-click": "activate",
+        "sort-by-number": true
+    },
+
+    "hyprland/window": {
+        "format": "現在    ♦️    {}",
+        "max-length": 50,
+        "separate-outputs": true,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "🌐 $1",
+            "(.*) - Visual Studio Code": "📝 $1",
+            "(.*) - Obsidian": "📓 $1"
+        }
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %B %d, %Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up", 
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "cpu": {
+        "interval": 3,
+        "format": "{usage}% 󰻠",
+        "max-length": 10,
+        "on-click": "kitty --class=btop -e btop",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "memory": {
+        "interval": 3,
+        "format": "{percentage}% ",
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": "Memory: {used:0.1f}G/{total:0.1f}G\nSwap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
+        "on-click": "kitty --class=btop -e btop",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "temperature": {
+        "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
+        "critical-threshold": 80,
+        "interval": 2,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": true,
+        "on-click": "kitty --class=sensors -e watch sensors"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "smooth-scrolling-threshold": 1
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% 󰚥",
+        "format-time": "{H}h {M}m",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{timeTo}, {power}W"
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "󰾅",
+            "performance": "󰓅",
+            "balanced": "󰾅",
+            "power-saver": "󰾆"
+        }
+    },
+
+    "network": {
+        "format-wifi": "{signalStrength}% 󰤨",
+        "format-ethernet": "󰈀",
+        "format-linked": "󰤭",
+        "format-disconnected": "󰤭",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "Connected to {essid}\nInterface: {ifname}\nIP: {ipaddr}/{cidr}\nGateway: {gwaddr}\nSignal: {signalStrength}%",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click-right": "nmcli device wifi rescan"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{volume}% {icon}  {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "smooth-scrolling-threshold": 1
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8,
+        "show-passive-items": true
+    },
+
+    // Custom modules for enhanced functionality
+    "custom/wifi-menu": {
+        "format": " ",
+        "on-click": "~/.config/waybar/scripts/wifi-menu.sh",
+        "tooltip": "Click to open WiFi menu"
+    },
+
+    "custom/updates": {
+        "format": "{} 󰚰",
+        "interval": 3600,
+        "exec": "checkupdates | wc -l",
+        "exec-if": "exit 0",
+        "on-click": "kitty --class=update -e yay -Syu",
+        "signal": 8,
+        "tooltip": true,
+        "tooltip-format": "{} updates available"
+    },
+
+    "custom/notification-toggle": {
+        "format": "Not.{icon}",
+        "format-icons": {
+            "notification": "󰂚",
+            "none": "󰂛"
+        },
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/dunst-toggle.sh",
+        "on-click": "~/.config/waybar/scripts/dunst-toggle.sh toggle",
+        "signal": 12,
+        "tooltip": true
+    }
+}

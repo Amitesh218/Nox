@@ -6,24 +6,23 @@
   home.homeDirectory = "/home/S01";
 
   # Optional programs and configs (NO packages here)
-  programs.zsh = {
-    enable = true;
-    oh-my-zsh.enable = true;
-    oh-my-zsh.theme = "agnoster";  # Example theme
-  };
 
   programs.git = {
     enable = true;
     userName = "Amitesh218";
     userEmail = "amiteshrawal1@gmail.com";
     extraConfig = {
+      credential.helper = "${
+          pkgs.git.override { withLibsecret = true; }
+        }/bin/git-credential-libsecret";
       core.editor = "vim";
     };
   };
 
   # Example of copying a config file (like waybar styling)
-  # xdg.configFile."waybar/config".source = ../../dotfiles/waybar/config;
-  # xdg.configFile."waybar/style.css".source = ../../dotfiles/waybar/style.css;
+  xdg.configFile."waybar/config.jsonc".source = ../dotfiles/S01/waybar/config.jsonc;
+  xdg.configFile."waybar/style.css".source = ../dotfiles/S01/waybar/style.css;
+  xdg.configFile."hypr/hyprland.conf".source = ../dotfiles/S01/hypr/hyprland.conf;
 
   # Optionally enable GTK theming
   gtk = {

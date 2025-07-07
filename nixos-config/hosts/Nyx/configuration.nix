@@ -79,7 +79,6 @@
     wget
     kitty
     brightnessctl
-    git
     vscode
     kdePackages.dolphin
     kdePackages.kio-extras
@@ -91,21 +90,37 @@
     hyprpolkitagent
     waybar
     gvfs
+    hyprsunset
   ];
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    noto-fonts-extra
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    dina-font
-    proggyfonts
-    nerd-fonts.fira-code
-  ];
+  fonts = {
+    packages = with pkgs; [
+      # UI / system fonts
+      inter                          # Clean modern sans-serif
+      noto-fonts                     # Main Unicode sans fallback
+      noto-fonts-cjk-sans                 # Full CJK coverage
+      noto-fonts-emoji               # Emoji support
+      liberation_ttf                 # Liberation Sans, Serif, Mono fallback
+
+      # Dev & terminal fonts
+      fira-code                      # Monospaced dev font
+      nerd-fonts.fira-code           # Nerd-patched version of Fira Code
+      jetbrains-mono                 # Alternative monospace dev font
+
+      # Optional: bitmap or aesthetic fonts
+      dina-font                      # Small, clean bitmap font
+      mplus-outline-fonts.githubRelease # Good low-size Japanese dev font
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        sansSerif = [ "Inter" "Noto Sans" "Liberation Sans" ];
+        serif     = [ "Noto Serif" "Liberation Serif" ];
+        monospace = [ "Fira Code Nerd Font" "JetBrains Mono" "Liberation Mono" ];
+      };
+    };
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
