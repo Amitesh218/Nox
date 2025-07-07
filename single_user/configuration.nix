@@ -69,6 +69,7 @@
   programs = {
     firefox.enable = true;
     hyprland.enable = true;
+    chromium.enable = true;
   };
 
   # System packages
@@ -83,6 +84,10 @@
     rofi-wayland
     waybar
     hyprpolkitagent
+    swww
+    hyprlock
+    waypaper
+    gwenview
     
     # File management
     kdePackages.dolphin
@@ -95,15 +100,21 @@
     grim
     slurp
     fastfetch
+    btop
     
     # Development
     vscode
     
-    # Themes
+    # Themes and cursors
     kdePackages.breeze
+    kdePackages.breeze-gtk
+    kdePackages.breeze-icons
     kdePackages.oxygen
     adwaita-icon-theme
     gnome-themes-extra
+    bibata-cursors
+    qt6.qtwayland
+    kdePackages.qt6ct
   ];
 
   # Fonts
@@ -116,6 +127,7 @@
       fira-code
       nerd-fonts.fira-code
       jetbrains-mono
+      nerd-fonts.jetbrains-mono
     ];
     
     fontconfig.defaultFonts = {
