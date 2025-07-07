@@ -89,6 +89,8 @@
     waypaper
     kdePackages.gwenview
     chromium
+    mako
+    libnotify
 
     # File management
     kdePackages.dolphin

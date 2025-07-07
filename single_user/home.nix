@@ -55,14 +55,6 @@
   };
 
   # Qt theming (for KDE apps)
-  qt = {
-    enable = true;
-    platformTheme.name = "breeze-dark";
-    style = {
-      name = "breeze-dark";
-      package = pkgs.kdePackages.breeze;
-    };
-  };
 
   # Cursor theme
   home.pointerCursor = {

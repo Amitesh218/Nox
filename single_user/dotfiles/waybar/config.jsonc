@@ -52,7 +52,7 @@
     },
 
     "hyprland/window": {
-        "format": "現在    ♦️    {}",
+        "format": "{}",
         "max-length": 50,
         "separate-outputs": true,
         "rewrite": {
@@ -102,7 +102,7 @@
 
     "memory": {
         "interval": 3,
-        "format": "{percentage}% ",
+        "format": "{percentage}% RAM",
         "max-length": 10,
         "tooltip": true,
         "tooltip-format": "Memory: {used:0.1f}G/{total:0.1f}G\nSwap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
@@ -203,7 +203,7 @@
     // Custom modules for enhanced functionality
     "custom/wifi-menu": {
         "format": " ",
-        "on-click": "~/.config/waybar/scripts/wifi-menu.sh",
+        "on-click": "~/Nox/single_user/dotfiles/waybar/scripts/wifi-menu.sh",
         "tooltip": "Click to open WiFi menu"
     },
 
