@@ -87,14 +87,15 @@
     swww
     hyprlock
     waypaper
-    kdePackages.gwenview
     chromium
     mako
     libnotify
+    obs-studio
 
     # File management
-    kdePackages.dolphin
-    kdePackages.kio-extras
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.tumbler
     gvfs
     
     # System utilities
@@ -106,21 +107,58 @@
     btop
     starship
     
-    # Development
+    # Development Packages, a LOT of them
+    # Core development tools
     vscode
+    gcc
+    gnumake
+    cmake
+    binutils
+    pkg-config
+    automake
+    autoconf
+    libtool
+    gdb
+
+    # Common build tools & scripting
+    python3
+    perl
+    bison
+    flex
+    gettext
+    which
+    file
+    patch
+    xz
+    unzip
+    zip
+    git
+
+    # Optional: C++ tooling
+    clang
+    lldb
+    lld
+    ccache
+    bear        # For generating compile_commands.json
+    valgrind
+
+    # Optional: Misc utils
+    man-pages
+    man-db
+    strace
+    lsof
     
     # Themes and cursors
-    kdePackages.breeze
-    kdePackages.breeze-gtk
-    kdePackages.breeze-icons
-    kdePackages.oxygen
     adwaita-icon-theme
     gnome-themes-extra
     bibata-cursors
     qt6.qtwayland
-    kdePackages.qt6ct
-    libsForQt5.qt5ct
   ];
+
+  # Environment variables
+  environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qtct";      # Or "qt5ct" if using qt5ct instead
+  };
 
   # Fonts
   fonts = {
@@ -141,11 +179,6 @@
       monospace = [ "Fira Code Nerd Font" "JetBrains Mono" ];
     };
   };
-
-  environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt6ct";      # Or "qt5ct" if using qt5ct instead
-  };
-
 
   system.stateVersion = "25.05";
 }

@@ -54,8 +54,6 @@
     };
   };
 
-  # Qt theming (for KDE apps)
-
   # Cursor theme
   home.pointerCursor = {
     name = "Bibata-Modern-Classic";
