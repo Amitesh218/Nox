@@ -24,8 +24,11 @@
       ll = "ls -la";
       la = "ls -la";
       ".." = "cd ..";
-      rebuild = "sudo nixos-rebuild switch --flake .";
+      rebuild = "sudo nixos-rebuild switch --flake ";
     };
+    bashrcExtra = ''
+      eval "$(starship init bash)"
+    '';
   };
 
   # Dotfiles
@@ -35,6 +38,7 @@
     "hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
     "hypr/hyprlock.conf".source = ./dotfiles/hypr/hyprlock.conf;
     "kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
+    "starship.toml".source = ./dotfiles/starship/starship.toml;
   };
 
   # GTK theming

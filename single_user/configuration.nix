@@ -87,8 +87,9 @@
     swww
     hyprlock
     waypaper
-    gwenview
-    
+    kdePackages.gwenview
+    chromium
+
     # File management
     kdePackages.dolphin
     kdePackages.kio-extras
@@ -101,6 +102,7 @@
     slurp
     fastfetch
     btop
+    starship
     
     # Development
     vscode
