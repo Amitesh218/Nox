@@ -78,6 +78,8 @@
       libsoup_3
       inputs.astal.packages.${pkgs.system}.battery
       inputs.astal.packages.${pkgs.system}.io
+      inputs.astal.packages.${pkgs.system}.astal4
+      gjs
     ];
   };
 
