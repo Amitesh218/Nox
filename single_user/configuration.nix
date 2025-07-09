@@ -98,6 +98,7 @@
     pavucontrol
     steam-run
     playerctl
+    pulseaudio
 
     # File management
     xfce.thunar

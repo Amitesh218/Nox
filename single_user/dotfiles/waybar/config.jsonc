@@ -9,6 +9,7 @@
     "margin-right": 0,
     
     "modules-left": [
+        "hyprland/workspaces",
         "hyprland/window"
     ],
     "modules-center": [
@@ -22,10 +23,10 @@
         "power-profiles-daemon",
         "cpu",
         "memory",
-        "temperature",
+        // "temperature",
         "backlight",
         "battery",
-        "custom/notification-toggle",
+        // "custom/notification-toggle",
         "tray"
     ],
 
@@ -33,16 +34,16 @@
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "1": "󰈹",
+            "1": "",
             "2": "",
             "3": "",
-            "4": "󰇮",
-            "5": "󰊢",
+            "4": "",
+            "5": "",
             "6": "",
             "7": "",
             "8": "",
             "9": "",
-            "10": "󰐃"
+            "10": ""
         },
         "persistent-workspaces": {
             "*": 5
@@ -91,7 +92,7 @@
 
     "cpu": {
         "interval": 3,
-        "format": "{usage}% 󰻠",
+        "format": "{usage}% ",
         "max-length": 10,
         "on-click": "kitty --class=btop -e btop",
         "states": {
@@ -118,7 +119,7 @@
         "critical-threshold": 80,
         "interval": 2,
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": ["", "", ""],
         "tooltip": true,
         "on-click": "kitty --class=sensors -e watch sensors"
     },
@@ -126,7 +127,7 @@
     "backlight": {
         "device": "intel_backlight",
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
         "on-scroll-up": "brightnessctl set 5%+",
         "on-scroll-down": "brightnessctl set 5%-",
         "smooth-scrolling-threshold": 1
