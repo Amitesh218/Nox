@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "S01";
@@ -11,7 +11,7 @@
     userName = "Amitesh218";
     userEmail = "amiteshrawal1@gmail.com";
     extraConfig = {
-      credential.helper = "libsecret";
+      # credential.helper = "libsecret";
       core.editor = "vim";
       init.defaultBranch = "main";
     };
@@ -24,7 +24,7 @@
       ll = "ls -la";
       la = "ls -la";
       ".." = "cd ..";
-      rebuild = "sudo nixos-rebuild switch --flake ";
+      rebuild = "sudo nixos-rebuild switch";
     };
     bashrcExtra = ''
       eval "$(starship init bash)"
@@ -58,10 +58,33 @@
   home.pointerCursor = {
     name = "Bibata-Modern-Classic";
     package = pkgs.bibata-cursors;
-    size = 24;
+    size = 18;
     gtk.enable = true;
     x11.enable = true;
   };
+
+  # AGS integration via Home Manager module
+  imports = [ inputs.ags.homeManagerModules.default ];
+
+  programs.ags = {
+    enable = true;
+
+    # Symlink your AGS config (JS/TS) to ~/.config/ags
+    configDir = ./dotfiles/ags;
+
+    # Add runtime dependencies for widgets, music, etc.
+    extraPackages = with pkgs; [
+      playerctl
+      libsoup_3
+      inputs.astal.packages.${pkgs.system}.battery
+      inputs.astal.packages.${pkgs.system}.io
+    ];
+  };
+
+  # 🆕 Add Astal CLI tools to your user environment
+  home.packages = with pkgs; [
+    inputs.astal.packages.${pkgs.system}.notifd
+  ];
 
   # Enable font configuration
   fonts.fontconfig.enable = true;

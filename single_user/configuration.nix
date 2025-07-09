@@ -55,6 +55,7 @@
     power-profiles-daemon.enable = true;
     dbus.enable = true;
     udisks2.enable = true;
+    gvfs.enable = true;
   };
 
   security.polkit.enable = true;
@@ -70,6 +71,8 @@
     firefox.enable = true;
     hyprland.enable = true;
     chromium.enable = true;
+    steam.enable = true;
+    nix-ld.enable = true;  # Compatibility shim for running fhs needy installers like precompiled .sh installers
   };
 
   # System packages
@@ -83,7 +86,7 @@
     kitty
     rofi-wayland
     waybar
-    hyprpolkitagent
+    polkit_gnome
     swww
     hyprlock
     waypaper
@@ -91,6 +94,10 @@
     mako
     libnotify
     obs-studio
+    spotify
+    pavucontrol
+    steam-run
+    playerctl
 
     # File management
     xfce.thunar
@@ -106,8 +113,14 @@
     fastfetch
     btop
     starship
+
+    # Themes and cursors
+    adwaita-icon-theme
+    gnome-themes-extra
+    bibata-cursors
+    qt6.qtwayland
     
-    # Development Packages, a LOT of them
+    ############################################################
     # Core development tools
     vscode
     gcc
@@ -147,12 +160,7 @@
     man-db
     strace
     lsof
-    
-    # Themes and cursors
-    adwaita-icon-theme
-    gnome-themes-extra
-    bibata-cursors
-    qt6.qtwayland
+    ############################################################
   ];
 
   # Environment variables
