@@ -63,31 +63,6 @@
     x11.enable = true;
   };
 
-  # AGS integration via Home Manager module
-  imports = [ inputs.ags.homeManagerModules.default ];
-
-  programs.ags = {
-    enable = true;
-
-    # Symlink your AGS config (JS/TS) to ~/.config/ags
-    configDir = ./dotfiles/ags;
-
-    # Add runtime dependencies for widgets, music, etc.
-    extraPackages = with pkgs; [
-      playerctl
-      libsoup_3
-      inputs.astal.packages.${pkgs.system}.battery
-      inputs.astal.packages.${pkgs.system}.io
-      inputs.astal.packages.${pkgs.system}.astal4
-      gjs
-    ];
-  };
-
-  # 🆕 Add Astal CLI tools to your user environment
-  home.packages = with pkgs; [
-    inputs.astal.packages.${pkgs.system}.notifd
-  ];
-
   # Enable font configuration
   fonts.fontconfig.enable = true;
 
