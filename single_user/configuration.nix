@@ -71,8 +71,7 @@
     firefox.enable = true;
     hyprland.enable = true;
     chromium.enable = true;
-    steam.enable = true;
-    nix-ld.enable = true;  # Compatibility shim for running fhs needy installers like precompiled .sh installers
+    # nix-ld.enable = true;  # Compatibility shim for running fhs needy installers like precompiled .sh installers
   };
 
   # System packages
