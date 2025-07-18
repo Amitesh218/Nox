@@ -32,7 +32,7 @@
 
     // Workspaces for better workspace management
     "hyprland/workspaces": {
-        "format": "{icon}",
+        "format": "",
         "format-icons": {
             "1": "",
             "2": "",
@@ -43,11 +43,10 @@
             "7": "",
             "8": "",
             "9": "",
-            "10": ""
+            "10": "",
+            "active": "" 
         },
-        "persistent-workspaces": {
-            "*": 5
-        },
+
         "on-click": "activate",
         "sort-by-number": true
     },
@@ -56,10 +55,14 @@
         "format": "{}",
         "max-length": 50,
         "separate-outputs": true,
+        "swap-icon-label": true,
         "rewrite": {
-            "(.*) — Mozilla Firefox": "🌐 $1",
-            "(.*) - Visual Studio Code": "📝 $1",
-            "(.*) - Obsidian": "📓 $1"
+            "(.*) — Mozilla Firefox": " $1",
+            "(.*) — Mozilla Firefox Private Browsing": "  $1",
+            "(.*) - Visual Studio Code": "   $1",
+            "(.*) - Kitty": " $1",
+            "(.*) - Chromium": "  $1",
+            "(.*) - Spotify:": "  $1"
         }
     },
 

@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 {
-  home.username = "S01";
-  home.homeDirectory = "/home/S01";
+  home.username = "Haze";
+  home.homeDirectory = "/home/Haze";
   home.stateVersion = "25.05";
 
   # Git configuration
@@ -20,25 +20,9 @@
   # Shell configuration
   programs.bash = {
     enable = true;
-    shellAliases = {
-      ll = "ls -la";
-      la = "ls -la";
-      ".." = "cd ..";
-      rebuild = "sudo nixos-rebuild switch";
-    };
     bashrcExtra = ''
       eval "$(starship init bash)"
     '';
-  };
-
-  # Dotfiles
-  xdg.configFile = {
-    "waybar/config.jsonc".source = ./dotfiles/waybar/config.jsonc;
-    "waybar/style.css".source = ./dotfiles/waybar/style.css;
-    "hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
-    "hypr/hyprlock.conf".source = ./dotfiles/hypr/hyprlock.conf;
-    "kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
-    "starship.toml".source = ./dotfiles/starship/starship.toml;
   };
 
   # GTK theming
@@ -68,4 +52,14 @@
 
   # Home Manager programs management
   programs.home-manager.enable = true;
+
+  # Dotfiles
+  #xdg.configFile = {
+  #  "waybar/config.jsonc".source = ./dotfiles/waybar/config.jsonc;
+  #  "waybar/style.css".source = ./dotfiles/waybar/style.css;
+  #  "hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
+  #  "hypr/hyprlock.conf".source = ./dotfiles/hypr/hyprlock.conf;
+  #  "kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
+  #  "starship.toml".source = ./dotfiles/starship/starship.toml;
+  #};
 }

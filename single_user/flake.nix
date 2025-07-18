@@ -20,7 +20,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = { inherit inputs; };
-            users.S01 = import ./home.nix;
+            users.Haze = import ./home.nix;
           };
         }
       ];
