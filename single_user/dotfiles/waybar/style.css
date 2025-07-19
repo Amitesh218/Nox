@@ -1,6 +1,6 @@
 /* Global settings */
 * {
-    font-family: "Inter", "SF Pro Display", sans-serif;
+    font-family: "Jetbrains Mono", "SF Pro Display", sans-serif;
     font-size: 13px;
     font-weight: 400;
     border: none;
@@ -14,7 +14,8 @@ window#waybar {
     border-radius: 0px;
     color: #cdd6f4;
     border: 0px solid rgba(205, 214, 244, 0.1);
-    margin-top: 5px
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 window#waybar.hidden {
@@ -35,23 +36,24 @@ tooltip > label {
 
 /* Workspace module */
 #workspaces {
-    margin-top: 5px;
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-right: 5px;
     background: rgb(42, 37, 44);
     border-radius: 6px;
-    padding: 2px 4px;
+    padding: 8px 4px;
 }
 
 #workspaces button {
     margin: 2px 3px;
-    padding: 1px 1px;
+    padding: 7px 0px;
     color: transparent;
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 20px;
 }
 
 #workspaces button.active {
-    background: rgb(228, 177, 229);
+    background: gold;
     color: rgb(0, 0, 0);
     font-weight: 600;
 }
@@ -73,6 +75,7 @@ tooltip > label {
     color: #cdd6f4;
     padding: 0px 12px;
     margin-top: 5px;
+    margin-bottom:5px;
     margin-left: 6px;
     border-radius: 6px;
 }
@@ -81,10 +84,12 @@ tooltip > label {
 #clock {
     background: rgb(33, 33, 33);
     color: rgb(255, 255, 255);
-    padding: 0px 16px;
-    margin-top: 3px;
+    padding: 10px 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
     border-radius: 5px;
-    border: 1px solid rgba(0, 255, 255, 0.5);
+    border: 0px solid rgba(0, 255, 255, 0.5);
 }
 
 /* Shared module styling */
@@ -94,24 +99,29 @@ tooltip > label {
 #tray {
     background: rgb(32, 32, 32);
     color: goldenrod;
-    padding: 3px 10px;
-    margin-top: 5px;
+    padding: 10px 10px;
+    margin-right: 5px;
+    margin-left: 5px;
     border-radius: 5px;
 }
 
 /* Module-specific customizations */
 #cpu {
-    color: #f9e2af;
+    color: #04ff00;
     border: 0px solid #f9e2af;
-    
+}
+#cpu.thirty {
+    color: #91ff00;
+}
+#cpu.moderate {
+    color: yellow;
 }
 #cpu.warning {
     color: #fab387;
-    background: rgba(250, 179, 135, 0.1);
 }
 #cpu.critical {
     color: #000000;
-    background: rgb(255, 0, 72);
+    background: red;
     animation: pulse 1s infinite;
 }
 
@@ -148,7 +158,6 @@ tooltip > label {
 }
 
 #battery {
-    margin-right: 10px;
     color: #a6e3a1;
     border: 0px solid #a6e3a1;
 }
@@ -196,17 +205,17 @@ tooltip > label {
 #power-profiles-daemon.performance {
     color: #f38ba8;
     border-color: #f38ba8;
-    background: rgb(134, 0, 38);
+    background: rgb(57, 0, 16);
 }
 #power-profiles-daemon.balanced {
     color: #89b4fa;
     border-color: #89b4fa;
-    background: rgb(0, 52, 136);
+    background: rgb(0, 12, 32);
 }
 #power-profiles-daemon.power-saver {
     color: #a6e3a1;
     border-color: #a6e3a1;
-    background: rgb(11, 136, 0);
+    background: rgb(4, 49, 0);
 }
 
 /* Custom modules */
@@ -236,8 +245,9 @@ tooltip > label {
 /* Tray */
 #tray {
     background: rgba(49, 50, 68, 0.4);
-    margin-right: 8px;
-    border-radius: 8px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    border-radius: 6px;
 }
 
 /* Hover effects */

@@ -1,7 +1,7 @@
 // Improved Waybar Configuration
 {
     "layer": "top",
-    "position": "top",
+    "position": "right",
     //"height": 20,
     "spacing": 6,
     "margin-top": 0,
@@ -9,15 +9,15 @@
     "margin-right": 0,
     
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
+        "hyprland/workspaces"
+        //"hyprland/window"
     ],
     "modules-center": [
-        "clock"
+
     ],
     "modules-right": [
         // "custom/updates",
-        "custom/wifi-menu", 
+        //"custom/wifi-menu", 
         "network",
         "pulseaudio",
         "power-profiles-daemon",
@@ -26,6 +26,7 @@
         // "temperature",
         "backlight",
         "battery",
+        "clock",
         // "custom/notification-toggle",
         "tray"
     ],
@@ -57,21 +58,21 @@
         "separate-outputs": true,
         "swap-icon-label": true,
         "rewrite": {
-            "(.*) — Mozilla Firefox": " $1",
+            "(.*) — Mozilla Firefox": " $1",
             "(.*) — Mozilla Firefox Private Browsing": "  $1",
-            "(.*) - Visual Studio Code": "   $1",
-            "(.*) - Kitty": " $1",
+            "(.*) - Visual Studio Code": "󰨞 $1",
+            "(.*) - Kitty": "󰄛 $1",
             "(.*) - Chromium": "  $1",
             "(.*) - Spotify:": "  $1"
         }
     },
 
     "clock": {
-        "format": "{:%H:%M}",
-        "format-alt": "{:%A, %B %d, %Y}",
+        "format": "{:%H\n%M}",
+        "format-alt": "{:%a\n%b\n%d\n%y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "calendar": {
-            "mode": "year",
+            "mode": "month",
             "mode-mon-col": 3,
             "weeks-pos": "right",
             "on-scroll": 1,
@@ -95,10 +96,11 @@
 
     "cpu": {
         "interval": 3,
-        "format": "{usage}% ",
-        "max-length": 10,
+        "format": "{usage}\nCPU",
         "on-click": "kitty --class=btop -e btop",
         "states": {
+            "thirty": 30,
+            "moderate": 50,
             "warning": 70,
             "critical": 90
         }
@@ -106,8 +108,7 @@
 
     "memory": {
         "interval": 3,
-        "format": "{percentage}% RAM",
-        "max-length": 10,
+        "format": "{percentage}\nMEM",
         "tooltip": true,
         "tooltip-format": "Memory: {used:0.1f}G/{total:0.1f}G\nSwap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
         "on-click": "kitty --class=btop -e btop",
@@ -129,7 +130,7 @@
 
     "backlight": {
         "device": "intel_backlight",
-        "format": "{percent}% {icon}",
+        "format": "{icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "on-scroll-up": "brightnessctl set 5%+",
         "on-scroll-down": "brightnessctl set 5%-",
@@ -141,13 +142,13 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% 󰂄",
-        "format-plugged": "{capacity}% 󰚥",
-        "format-time": "{H}h {M}m",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "format": "{capacity}\n{icon}",
+        "format-full": "{capacity}\n{icon}",
+        "format-charging": "{capacity}\n󰂄󰂄",
+        "format-plugged": "{capacity}\n󰚥󰚥",
+        "format-time": "{H}h\n{M}m",
+        "format-alt": "{time}\n{icon}",
+        "format-icons": ["", "", "", "", ""],
         "tooltip-format": "{timeTo}, {power}W"
     },
 
@@ -157,30 +158,31 @@
         "tooltip": true,
         "format-icons": {
             "default": "󰾅",
-            "performance": "󰓅",
-            "balanced": "󰾅",
-            "power-saver": "󰾆"
+            "performance": "󱐌",
+            "balanced": "󰚀",
+            "power-saver": "󰌪"
         }
     },
 
     "network": {
-        "format-wifi": "{signalStrength}% 󰤨",
+        "format-wifi": " ",
         "format-ethernet": "󰈀",
         "format-linked": "󰤭",
         "format-disconnected": "󰤭",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        //"format-alt": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format": "Connected to {essid}\nInterface: {ifname}\nIP: {ipaddr}/{cidr}\nGateway: {gwaddr}\nSignal: {signalStrength}%",
         "tooltip-format-disconnected": "Disconnected",
-        "on-click-right": "nmcli device wifi rescan"
+        "on-click-right": "nmcli device wifi rescan",
+        "on-click": "~/Nox/single_user/dotfiles/waybar/scripts/wifi-menu.sh"
     },
 
     "pulseaudio": {
         "scroll-step": 5,
-        "format": "{volume}% {icon}  {format_source}",
+        "format": "{volume}\nAUD",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": " {volume}% ",
+        "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",

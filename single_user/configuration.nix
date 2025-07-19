@@ -42,7 +42,11 @@
     dbus.enable = true;
     udisks2.enable = true;
     gvfs.enable = true;
+    blueman.enable = true;
   };
+
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   security.polkit.enable = true;
 
@@ -95,6 +99,7 @@
   fonts = {
     packages = with pkgs; [
       inter
+      inconsolata
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
