@@ -37,7 +37,6 @@ tooltip > label {
 /* Workspace module */
 #workspaces {
     margin-left: 5px;
-    margin-top: 10px;
     margin-right: 5px;
     background: rgb(42, 37, 44);
     border-radius: 6px;
@@ -62,6 +61,11 @@ tooltip > label {
     background: #f38ba8;
     color: #1e1e2e;
     animation: pulse 2s infinite;
+}
+
+#workspaces button:hover {
+    background: gray;
+    color: black;
 }
 
 @keyframes pulse {
@@ -94,8 +98,8 @@ tooltip > label {
 
 /* Shared module styling */
 #cpu, #memory, #temperature, #backlight, #battery,
-#network, #pulseaudio, #power-profiles-daemon,
-#custom-updates, #custom-wifi-menu, #custom-notification-toggle,
+#network, #pulseaudio, #power-profiles-daemon, #taskbar,
+#custom-updates, #custom-launcher, #custom-wifi-menu, #custom-notification-toggle,
 #tray {
     background: rgb(32, 32, 32);
     color: goldenrod;
@@ -106,6 +110,33 @@ tooltip > label {
 }
 
 /* Module-specific customizations */
+
+#custom-launcher {
+    padding: 0px;
+    font-size: 34px;
+    background: transparent;
+    margin-right: 18px;
+    margin-top: 10px;
+    transition: text-shadow 0.3s ease;
+}
+
+#custom-launcher:hover {
+    text-shadow: 0 0 5px goldenrod, 0 0 7px goldenrod, 0 0 10px goldenrod;
+}
+
+#taskbar {
+    padding: 0px;
+    margin: 5px 5px;
+    background: transparent;
+}
+#taskbar button{
+    padding: 8px 0px;
+}
+#taskbar button:hover {
+    background: rgba(0, 0, 0, 0.33);
+    border-radius: 6px;
+}
+
 #cpu {
     color: #04ff00;
     border: 0px solid #f9e2af;
