@@ -39,13 +39,13 @@ tooltip > label {
     margin-left: 5px;
     margin-right: 5px;
     background: rgb(42, 37, 44);
-    border-radius: 6px;
-    padding: 8px 4px;
+    border-radius: 5px;
+    padding: 8px 8px;
 }
 
 #workspaces button {
-    margin: 2px 3px;
-    padding: 7px 0px;
+    margin: 6px 3px;
+    padding: 1px 0px;
     color: transparent;
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 20px;
@@ -84,29 +84,18 @@ tooltip > label {
     border-radius: 6px;
 }
 
-/* Clock */
-#clock {
-    background: rgb(33, 33, 33);
-    color: rgb(255, 255, 255);
-    padding: 10px 10px;
-    margin-right: 5px;
-    margin-left: 5px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 0px solid rgba(0, 255, 255, 0.5);
-}
-
 /* Shared module styling */
 #cpu, #memory, #temperature, #backlight, #battery,
 #network, #pulseaudio, #power-profiles-daemon, #taskbar,
 #custom-updates, #custom-launcher, #custom-wifi-menu, #custom-notification-toggle,
-#tray {
+#tray, #clock{
     background: rgb(32, 32, 32);
     color: goldenrod;
-    padding: 10px 10px;
+    padding: 10px 8px;
     margin-right: 5px;
     margin-left: 5px;
     border-radius: 5px;
+    transition: background 0.3s ease;
 }
 
 /* Module-specific customizations */
@@ -117,6 +106,7 @@ tooltip > label {
     background: transparent;
     margin-right: 18px;
     margin-top: 10px;
+    text-shadow: 0 0 5px black;
     transition: text-shadow 0.3s ease;
 }
 
@@ -126,15 +116,16 @@ tooltip > label {
 
 #taskbar {
     padding: 0px;
-    margin: 5px 5px;
+    margin: 10px 5px;
     background: transparent;
+    box-shadow: 0 0 5px black;
 }
 #taskbar button{
     padding: 8px 0px;
 }
 #taskbar button:hover {
     background: rgba(0, 0, 0, 0.33);
-    border-radius: 6px;
+    border-radius: 5px;
 }
 
 #cpu {
@@ -249,6 +240,12 @@ tooltip > label {
     background: rgb(4, 49, 0);
 }
 
+#clock {
+    background: rgb(33, 33, 33);
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
 /* Custom modules */
 #custom-updates {
     color: #f9e2af;
@@ -292,8 +289,9 @@ tooltip > label {
 #power-profiles-daemon:hover,
 #custom-updates:hover,
 #custom-wifi-menu:hover,
-#custom-notification-toggle:hover {
-    background: rgba(205, 214, 244, 0.1);
+#custom-notification-toggle:hover,
+#clock:hover {
+    background: rgba(0, 0, 0, 0.5);
 }
 
 /* Responsive tweaks (note: media queries are limited in GTK) 
