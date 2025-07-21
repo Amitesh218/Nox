@@ -23,8 +23,8 @@ else
     if [[ "$security" =~ "802-11-wireless-security" ]]; then
         password=$(rofi -dmenu -password -p "Password for $ssid" -theme-str 'window {width: 30em;}')
         [ -z "$password" ] && exit
-        nmcli device wifi connect "$ssid" password "$password" || notify-send "Connection failed!"
+        sudo nmcli device wifi connect "$ssid" password "$password" || notify-send "Connection failed!"
     else
-        nmcli device wifi connect "$ssid" || notify-send "Connection failed!"
+        sudo nmcli device wifi connect "$ssid" || notify-send "Connection failed!"
     fi
 fi
