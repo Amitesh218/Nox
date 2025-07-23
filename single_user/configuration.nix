@@ -64,10 +64,10 @@
     waypaper playerctl pulseaudio brightnessctl waybar
     mako pavucontrol
     
-    # Tools
+    # System Tools
     vim wget kitty git
     libnotify grim slurp fastfetch
-    btop starship gvfs
+    btop starship gvfs iw
     
     # Apps
     chromium obs-studio spotify vscode
