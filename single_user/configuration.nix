@@ -105,8 +105,8 @@
       noto-fonts-emoji
       fira-code
       nerd-fonts.fira-code
-      jetbrains-mono
-      nerd-fonts.jetbrains-mono
+      recursive
+      nerd-fonts.recursive-mono
       font-awesome
     ];
 

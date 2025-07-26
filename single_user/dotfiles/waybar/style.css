@@ -1,6 +1,6 @@
 /* Global settings */
 * {
-    font-family: "Jetbrains Mono", "SF Pro Display", sans-serif;
+    font-family: "Recursive", "SF Pro Display", sans-serif;
     font-size: 13px;
     font-weight: 400;
     border: none;
@@ -36,19 +36,20 @@ tooltip > label {
 
 /* Workspace module */
 #workspaces {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 5px 5px;
     background: rgb(42, 37, 44);
     border-radius: 5px;
     padding: 8px 8px;
+    box-shadow: 0px 0px 3px black;
 }
 
 #workspaces button {
-    margin: 6px 3px;
-    padding: 1px 0px;
+    margin: 3px 3px;
+    padding: 0px 0px;
+    font-size: 2px;
     color: transparent;
     background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 20px;
+    border-radius: 4px;
 }
 
 #workspaces button.active {
@@ -92,9 +93,9 @@ tooltip > label {
     background: rgb(32, 32, 32);
     color: goldenrod;
     padding: 10px 8px;
-    margin-right: 5px;
-    margin-left: 5px;
+    margin: 2px 5px;
     border-radius: 5px;
+    box-shadow: 0 0 3px black;
     transition: background 0.3s ease;
 }
 
@@ -108,17 +109,19 @@ tooltip > label {
     margin-top: 10px;
     text-shadow: 0 0 5px black;
     transition: text-shadow 0.3s ease;
+    box-shadow: none;
 }
 
 #custom-launcher:hover {
-    text-shadow: 0 0 5px goldenrod, 0 0 7px goldenrod, 0 0 10px goldenrod;
+    text-shadow: 0 0 2px goldenrod, 0 0 4px goldenrod, 0 0 5px goldenrod;
 }
 
 #taskbar {
     padding: 0px;
-    margin: 10px 5px;
-    background: transparent;
-    box-shadow: 0 0 5px black;
+    margin: 10px 0px;
+    margin-right: 5px;
+    margin-left: 5px;
+    background: rgba(0, 0, 0, 0.431);
 }
 #taskbar button{
     padding: 8px 0px;
@@ -129,7 +132,6 @@ tooltip > label {
 }
 
 #cpu {
-    color: #04ff00;
     border: 0px solid #f9e2af;
 }
 #cpu.thirty {
@@ -148,7 +150,6 @@ tooltip > label {
 }
 
 #memory {
-    color: #a6e3a1;
     border: 0px solid #a6e3a1;
 }
 #memory.warning {
@@ -156,23 +157,21 @@ tooltip > label {
     background: rgb(255, 98, 0);
 }
 #memory.critical {
-    color: #f38ba8;
+    color: #000000;
     background: rgb(255, 0, 72);
     animation: pulse 1s infinite;
 }
 
 #temperature {
-    color: #74c7ec;
     border: 0px solid #74c7ec;
 }
 #temperature.critical {
-    color: #f38ba8;
-    background: rgba(243, 139, 168, 0.1);
+    color: #000000;
+    background: rgb(255, 0, 72);
     animation: pulse 1s infinite;
 }
 
 #backlight {
-    color: #f9e2af;
     border: 0px solid #f9e2af;
 }
 #backlight, #pulseaudio {
@@ -180,7 +179,6 @@ tooltip > label {
 }
 
 #battery {
-    color: #a6e3a1;
     border: 0px solid #a6e3a1;
 }
 #battery.charging {
@@ -204,7 +202,6 @@ tooltip > label {
 }
 
 #network {
-    color: #89b4fa;
     border: 0px solid #89b4fa;
 }
 #network.disconnected {
@@ -213,7 +210,6 @@ tooltip > label {
 }
 
 #pulseaudio {
-    color: #cba6f7;
     border: 0px solid #cba6f7;
 }
 #pulseaudio.muted {

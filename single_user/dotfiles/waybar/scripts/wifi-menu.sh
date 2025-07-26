@@ -9,7 +9,7 @@ FIELDS=SSID,SECURITY
 POSITION=0
 YOFF=0
 XOFF=0
-FONT="JetBrainsMono Nerd Font 13"
+FONT="Recursive 13"
 
 if [ -r "$DIR/config" ]; then
 	source "$DIR/config"

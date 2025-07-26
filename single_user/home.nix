@@ -54,12 +54,16 @@
   programs.home-manager.enable = true;
 
   # Dotfiles
-  #xdg.configFile = {
-  #  "waybar/config.jsonc".source = ./dotfiles/waybar/config.jsonc;
-  #  "waybar/style.css".source = ./dotfiles/waybar/style.css;
-  #  "hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
-  #  "hypr/hyprlock.conf".source = ./dotfiles/hypr/hyprlock.conf;
-  #  "kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
-  #  "starship.toml".source = ./dotfiles/starship/starship.toml;
-  #};
+  xdg.configFile = {
+    "waybar/config.jsonc".source = ./dotfiles/waybar/config.jsonc;
+    "waybar/style.css".source = ./dotfiles/waybar/style.css;
+    "hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
+    "hypr/hyprlock.conf".source = ./dotfiles/hypr/hyprlock.conf;
+    "kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
+    "starship.toml".source = ./dotfiles/starship/starship.toml;
+    "waypaper/config.ini".source = "./Nox/waypaper/config.ini";
+    "rofi/config.rasi".source = "./Nox/rofi/config.rasi";
+    "mako/config".source = "./Nox/mako/config";
+    ""
+  };
 }

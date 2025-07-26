@@ -35,19 +35,19 @@
 
     // Workspaces for better workspace management
     "hyprland/workspaces": {
-        "format": "",
+        
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": "",
-            "7": "",
-            "8": "",
-            "9": "",
-            "10": "",
-            "active": "" 
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "active": "+" 
         },
 
         "on-click": "hyprctl reload",
@@ -149,8 +149,6 @@
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon}",
-        "tooltip": true,
-        "tooltip-format" : "{percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "on-scroll-up": "brightnessctl set 5%+",
         "on-scroll-down": "brightnessctl set 5%-",
@@ -192,7 +190,7 @@
         //"format-alt": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format": "Connected to {essid}\nInterface: {ifname}\nIP: {ipaddr}/{cidr}\nGateway: {gwaddr}\nSignal: {signalStrength}%",
         "tooltip-format-disconnected": "Disconnected",
-        "on-click-right": "nmcli device wifi rescan",
+        "on-click-right": "sudo nmcli device wifi rescan",
         "on-click": "~/Nox/single_user/dotfiles/waybar/scripts/wifi-menu.sh"
     },
 
@@ -227,7 +225,6 @@
     },
 
     // Custom modules for enhanced functionality
-
     "custom/wifi-menu": {
         "format": " ",
         "on-click": "~/Nox/single_user/dotfiles/waybar/scripts/wifi-menu.sh",
