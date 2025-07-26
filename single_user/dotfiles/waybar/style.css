@@ -53,13 +53,14 @@ tooltip > label {
 }
 
 #workspaces button.active {
-    background: gold;
+    background: crimson;
+    box-shadow: 0px 0px 5px crimson;
     color: rgb(0, 0, 0);
     font-weight: 600;
 }
 
 #workspaces button.urgent {
-    background: #f38ba8;
+    background: #00ffd9;
     color: #1e1e2e;
     animation: pulse 2s infinite;
 }
@@ -91,7 +92,7 @@ tooltip > label {
 #custom-updates, #custom-launcher, #custom-wifi-menu, #custom-notification-toggle,
 #tray, #clock{
     background: rgb(32, 32, 32);
-    color: goldenrod;
+    color: white;
     padding: 10px 8px;
     margin: 2px 5px;
     border-radius: 5px;
@@ -110,10 +111,11 @@ tooltip > label {
     text-shadow: 0 0 5px black;
     transition: text-shadow 0.3s ease;
     box-shadow: none;
+    color: crimson;
 }
 
 #custom-launcher:hover {
-    text-shadow: 0 0 2px goldenrod, 0 0 4px goldenrod, 0 0 5px goldenrod;
+    text-shadow: 0 0 2px crimson, 0 0 4px crimson, 0 0 5px crimson;
 }
 
 #taskbar {

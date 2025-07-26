@@ -31,7 +31,7 @@ configuration {
 	base0A: #FFCB6B;
 	base0B: #C3E88D;
 	base0C: #89DDFF;
-	base0D: gold;
+	base0D: crimson;
 	base0E: #C792EA;
 	base0F: #FF5370;
 
