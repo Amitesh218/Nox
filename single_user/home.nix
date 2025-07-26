@@ -55,13 +55,14 @@
 
   # Dotfiles
   xdg.configFile = {
-    "waybar/config.jsonc".source = ./dotfiles/waybar/config.jsonc;
-    "waybar/style.css".source = ./dotfiles/waybar/style.css;
-    "hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
-    "kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
-    "starship.toml".source = ./dotfiles/starship/starship.toml;
-    "waypaper/config.ini".source = "./Nox/waypaper/config.ini";
-    "rofi/config.rasi".source = "./Nox/rofi/config.rasi";
-    "mako/config".source = "./Nox/mako/config";
+    "waybar/config.jsonc".source = inputs.self + "/dotfiles/waybar/config.jsonc";
+    "waybar/style.css".source = inputs.self + "/dotfiles/waybar/style.css";
+    "hypr/hyprland.conf".source = inputs.self + "/dotfiles/hypr/hyprland.conf";
+    "kitty/kitty.conf".source = inputs.self + "/dotfiles/kitty/kitty.conf";
+    "starship.toml".source = inputs.self + "/dotfiles/starship.toml";
+    "waypaper/config.ini".source = inputs.self + "/dotfiles/waypaper/config.ini";
+    "rofi/config.rasi".source = inputs.self + "/dotfiles/rofi/config.rasi";
+    "mako/config".source = inputs.self + "/dotfiles/mako/config";
   };
+
 }
