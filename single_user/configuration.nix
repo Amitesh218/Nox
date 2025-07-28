@@ -57,6 +57,7 @@
   programs.firefox.enable = true;
   programs.hyprland.enable = true;
   programs.chromium.enable = true;
+  programs.steam.enable = true;
 
   environment.systemPackages = with pkgs; [
     # Hyprland packages
@@ -72,6 +73,7 @@
     # Apps
     chromium obs-studio spotify vscode
     xfce.thunar xfce.thunar-volman xfce.tumbler
+    localsend
 
     # Themes
     adwaita-icon-theme gnome-themes-extra

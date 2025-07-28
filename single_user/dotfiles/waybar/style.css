@@ -108,7 +108,7 @@ tooltip > label {
     background: transparent;
     margin-right: 18px;
     margin-top: 10px;
-    text-shadow: 0 0 5px black;
+    text-shadow: 0 0 3px black, 0 0 2px black, 0 0 2px black, 0 0 1px black;
     transition: text-shadow 0.3s ease;
     box-shadow: none;
     color: crimson;

@@ -10,8 +10,8 @@
     
     "modules-left": [
         "custom/launcher",
-        "hyprland/workspaces",
-        "wlr/taskbar"
+        "hyprland/workspaces"
+        //"wlr/taskbar"
         //"hyprland/window"
     ],
     "modules-center": [
