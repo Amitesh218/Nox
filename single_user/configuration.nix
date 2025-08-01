@@ -57,7 +57,7 @@
   programs.firefox.enable = true;
   programs.hyprland.enable = true;
   programs.chromium.enable = true;
-  programs.steam.enable = true;
+  # programs.steam.enable = true; # steam was being funky so fuck it we ball.
 
   environment.systemPackages = with pkgs; [
     # Hyprland packages
