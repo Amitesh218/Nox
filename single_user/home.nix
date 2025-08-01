@@ -11,7 +11,7 @@
     userName = "Amitesh218";
     userEmail = "amiteshrawal1@gmail.com";
     extraConfig = {
-      # credential.helper = "libsecret";
+      credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
       core.editor = "vim";
       init.defaultBranch = "main";
     };

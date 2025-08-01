@@ -63,7 +63,7 @@
     # Hyprland packages
     hyprsunset hyprpolkitagent hyprlock swww rofi-wayland
     waypaper playerctl pulseaudio brightnessctl waybar
-    mako pavucontrol
+    mako pavucontrol gnome-keyring
     
     # System Tools
     vim wget kitty git
