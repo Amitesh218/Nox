@@ -28,7 +28,7 @@
 
   users.users.Haze = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" "input" "pipewire"];
   };
 
   services = {
@@ -43,6 +43,7 @@
     udisks2.enable = true;
     gvfs.enable = true;
     blueman.enable = true;
+    gnome.gnome-keyring.enable = true;
   };
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
@@ -50,9 +51,15 @@
 
   security.polkit.enable = true;
 
+
   #############################
   ##   SYSTEMWIDE PACKAGES   ##
   #############################
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  };
 
   programs.firefox.enable = true;
   programs.hyprland.enable = true;
@@ -61,9 +68,9 @@
 
   environment.systemPackages = with pkgs; [
     # Hyprland packages
-    hyprsunset hyprpolkitagent hyprlock swww rofi-wayland
+    hyprsunset lxqt.lxqt-policykit hyprlock swww rofi-wayland
     waypaper playerctl pulseaudio brightnessctl waybar
-    mako pavucontrol gnome-keyring
+    mako pavucontrol gnome-keyring clipman rofimoji
     
     # System Tools
     vim wget kitty git

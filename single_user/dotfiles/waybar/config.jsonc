@@ -191,7 +191,7 @@
         "tooltip-format": "Connected to {essid}\nInterface: {ifname}\nIP: {ipaddr}/{cidr}\nGateway: {gwaddr}\nSignal: {signalStrength}%",
         "tooltip-format-disconnected": "Disconnected",
         "on-click-right": "sudo nmcli device wifi rescan",
-        "on-click": "~/Nox/single_user/dotfiles/waybar/scripts/wifi-menu.sh"
+        "on-click": "nmtui"
     },
 
     "pulseaudio": {
