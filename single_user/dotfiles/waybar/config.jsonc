@@ -10,7 +10,7 @@
     
     "modules-left": [
         "custom/launcher",
-        "hyprland/workspaces"
+        "sway/workspaces"
         //"wlr/taskbar"
         //"hyprland/window"
     ],
@@ -34,7 +34,7 @@
     ],
 
     // Workspaces for better workspace management
-    "hyprland/workspaces": {
+    "sway/workspaces": {
         
         "format-icons": {
             "1": "1",
@@ -54,7 +54,7 @@
         "sort-by-number": true
     },
 
-    "hyprland/window": {
+    "sway/window": {
         "format": "{}",
         "max-length": 50,
         "separate-outputs": true,
@@ -191,7 +191,7 @@
         "tooltip-format": "Connected to {essid}\nInterface: {ifname}\nIP: {ipaddr}/{cidr}\nGateway: {gwaddr}\nSignal: {signalStrength}%",
         "tooltip-format-disconnected": "Disconnected",
         "on-click-right": "sudo nmcli device wifi rescan",
-        "on-click": "nmtui"
+        "on-click": "kitty --class=nmtui -e nmtui"
     },
 
     "pulseaudio": {
