@@ -69,15 +69,19 @@
 
   environment.systemPackages = with pkgs; [
     # Hyprland packages
-    hyprsunset lxqt.lxqt-policykit hyprlock swww rofi-wayland
-    waypaper playerctl pulseaudio brightnessctl waybar
-    mako pavucontrol gnome-keyring clipman rofimoji
+    hyprsunset hyprlock
+   
+    # Sway packages
+    gammastep
     
     # System Tools
     vim wget kitty git
     libnotify grim slurp fastfetch
     btop starship gvfs iw
-    
+    lxqt.lxqt-policykit swww rofi-wayland
+    waypaper playerctl pulseaudio brightnessctl waybar
+    mako pavucontrol gnome-keyring clipman rofimoji   
+
     # Apps
     chromium obs-studio spotify vscode
     xfce.thunar xfce.thunar-volman xfce.tumbler

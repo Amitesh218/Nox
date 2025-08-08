@@ -9,8 +9,8 @@
     "margin-right": 0,
     
     "modules-left": [
-        "custom/launcher",
-        "sway/workspaces"
+        "custom/launcher"
+        //"sway/workspaces"
         //"wlr/taskbar"
         //"hyprland/window"
     ],
@@ -50,7 +50,7 @@
             "active": "+" 
         },
 
-        "on-click": "hyprctl reload",
+        // "on-click": "hyprctl reload",
         "sort-by-number": true
     },
 

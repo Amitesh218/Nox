@@ -1,8 +1,8 @@
 /* Global settings */
 * {
     font-family: "Recursive", "SF Pro Display", sans-serif;
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 12px;
+    font-weight: 600;
     border: none;
     border-radius: 0;
     min-height: 0;
@@ -38,9 +38,9 @@ tooltip > label {
 #workspaces {
     margin: 5px 5px;
     background: rgb(42, 37, 44);
-    border-radius: 5px;
+    border-radius: 0px;
     padding: 8px 8px;
-    box-shadow: 0px 0px 3px black;
+    /*box-shadow: 0px 0px 3px black;*/
 }
 
 #workspaces button {
@@ -49,7 +49,7 @@ tooltip > label {
     font-size: 2px;
     color: transparent;
     background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 4px;
+    border-radius: 0px;
 }
 
 #workspaces button.active {
@@ -83,7 +83,7 @@ tooltip > label {
     margin-top: 5px;
     margin-bottom:5px;
     margin-left: 6px;
-    border-radius: 6px;
+    border-radius: 0px;
 }
 
 /* Shared module styling */
@@ -95,8 +95,8 @@ tooltip > label {
     color: white;
     padding: 10px 8px;
     margin: 2px 5px;
-    border-radius: 5px;
-    box-shadow: 0 0 3px black;
+    border-radius: 0px;
+    /*box-shadow: 0 0 3px black;*/
     transition: background 0.3s ease;
 }
 
@@ -107,11 +107,11 @@ tooltip > label {
     font-size: 34px;
     background: transparent;
     margin-right: 18px;
-    margin-top: 10px;
-    text-shadow: 0 0 3px black, 0 0 2px black, 0 0 2px black, 0 0 1px black;
+    margin-top: 5px;
+    text-shadow: 0 0 3px white, 0 0 2px white, 0 0 2px white, 0 0 1px white;
     transition: text-shadow 0.3s ease;
     box-shadow: none;
-    color: crimson;
+    color: black;
 }
 
 #custom-launcher:hover {
@@ -241,7 +241,7 @@ tooltip > label {
 #clock {
     background: rgb(33, 33, 33);
     color: rgb(255, 255, 255);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 /* Custom modules */
@@ -271,8 +271,7 @@ tooltip > label {
 /* Tray */
 #tray {
     background: rgba(49, 50, 68, 0.4);
-    margin-right: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border-radius: 6px;
 }
 

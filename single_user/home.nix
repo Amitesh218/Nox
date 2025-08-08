@@ -63,6 +63,7 @@
     "waypaper/config.ini".source = inputs.self + "/dotfiles/waypaper/config.ini";
     "rofi/config.rasi".source = inputs.self + "/dotfiles/rofi/config.rasi";
     "mako/config".source = inputs.self + "/dotfiles/mako/config";
+    "sway/config".source = inputs.self + "/dotfiles/sway/config";
   };
 
 }
