@@ -102,6 +102,9 @@ font pango:Recursive 10
     # Start a terminal
     bindsym $mod+Return exec $term
 
+    # Lock the screen
+    bindsym $mod+m exec hyprlock & disown && systemctl suspend
+
     # Kill focused window
     bindsym $mod+Shift+q kill
 
