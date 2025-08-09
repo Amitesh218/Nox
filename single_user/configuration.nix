@@ -83,7 +83,7 @@
     mako pavucontrol gnome-keyring clipman rofimoji   
 
     # Apps
-    chromium obs-studio spotify vscode
+    chromium obs-studio spotify neovim vscodium
     xfce.thunar xfce.thunar-volman xfce.tumbler
     localsend
 
