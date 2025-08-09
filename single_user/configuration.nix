@@ -65,7 +65,7 @@
   programs.hyprland.enable = true;
   programs.chromium.enable = true;
   programs.sway.enable = true;
-  # programs.steam.enable = true; # steam was being funky so fuck it we ball.
+  programs.steam.enable = true; # steam was being funky so fuck it we ball.
 
   environment.systemPackages = with pkgs; [
     # Hyprland packages
@@ -83,9 +83,9 @@
     mako pavucontrol gnome-keyring clipman rofimoji   
 
     # Apps
-    chromium obs-studio spotify neovim vscodium
+    chromium obs-studio spotify neovim vscode
     xfce.thunar xfce.thunar-volman xfce.tumbler
-    localsend
+    localsend discord
 
     # Themes
     adwaita-icon-theme gnome-themes-extra
@@ -94,6 +94,12 @@
     # Utilities
     unzip
   ];
+
+  environment.variables = {
+    GDK_BACKEND = "wayland";
+    NIXOS_OZONE_WL = "1";
+  };
+
 
 
   ###########################
