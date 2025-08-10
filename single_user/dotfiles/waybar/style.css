@@ -40,7 +40,7 @@ tooltip > label {
     background: rgb(42, 37, 44);
     border-radius: 0px;
     padding: 8px 8px;
-    /*box-shadow: 0px 0px 3px black;*/
+    box-shadow: 0px 0px 3px white;
 }
 
 #workspaces button {
@@ -83,7 +83,7 @@ tooltip > label {
     margin-top: 5px;
     margin-bottom:5px;
     margin-left: 6px;
-    border-radius: 0px;
+    border-radius: 5px;
 }
 
 /* Shared module styling */
@@ -95,9 +95,10 @@ tooltip > label {
     color: white;
     padding: 10px 8px;
     margin: 2px 5px;
-    border-radius: 0px;
-    /*box-shadow: 0 0 3px black;*/
+    border-radius: 5px;
+    box-shadow: 0 0 3px white;
     transition: background 0.3s ease;
+    transition: box-shadow 0.3s ease;
 }
 
 /* Module-specific customizations */
@@ -106,7 +107,6 @@ tooltip > label {
     padding: 0px;
     font-size: 34px;
     background: transparent;
-    margin-left: 18px;
     margin-top: 5px;
     text-shadow: 0 0 3px white, 0 0 2px white, 0 0 2px white, 0 0 1px white;
     transition: text-shadow 0.3s ease;
@@ -289,6 +289,8 @@ tooltip > label {
 #custom-notification-toggle:hover,
 #clock:hover {
     background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 2px crimson, 0 0 4px crimson, 0 0 5px crimson;
+    transition: box-shadow 0.3s ease;
 }
 
 /* Responsive tweaks (note: media queries are limited in GTK) 
