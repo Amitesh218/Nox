@@ -106,7 +106,7 @@ tooltip > label {
     padding: 0px;
     font-size: 34px;
     background: transparent;
-    margin-right: 18px;
+    margin-left: 18px;
     margin-top: 5px;
     text-shadow: 0 0 3px white, 0 0 2px white, 0 0 2px white, 0 0 1px white;
     transition: text-shadow 0.3s ease;
