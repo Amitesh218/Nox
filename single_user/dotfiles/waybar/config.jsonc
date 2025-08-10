@@ -196,11 +196,11 @@
 
     "pulseaudio": {
         "scroll-step": 5,
-        "format": "{volume}\nAUD",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format": "{volume}\nO/P\n\n{format_source}",
+        "format-bluetooth": "{volume}\nO/P\n\n{format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": "{volume}\nI/P",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
