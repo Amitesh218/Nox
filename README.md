@@ -207,6 +207,7 @@ mount -o compress=zstd,noatime,subvol=@nix /dev/disk/by-label/NIXROOT /mnt/nix
 mount -o compress=zstd,noatime,subvol=@home /dev/disk/by-label/NIXROOT /mnt/home
 mount /dev/disk/by-label/NIXBOOT /mnt/boot
 ```
+---
 
 ### ❄️ Config Generation and Installation
 
