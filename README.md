@@ -239,6 +239,17 @@ cd /mnt
 sudo nixos-install
 ```
 
+#### If you already have a flake set up, you can (after partitioning the disk appropriately) build the system from the flake directly, (I know! that's awesome!)
+via:
+```bash
+# for a remote repository
+nixos-install --flake github:<username>/<repo>#<hostname>
+
+# for a local repository
+nixos-install --flake /path/to/flake#your-hostname
+```
+
+
 ---
 
 ### ❄️ Reboot and Password Setup
