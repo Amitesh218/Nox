@@ -122,6 +122,7 @@ For Wi-Fi:
 
 ### ❄️ Disk Partitioning and Mounting
 
+#### SETUP 1
 In this setup, I’ll be using the following partition layout:
 
 | Number | Type             | Size                 | Label |
@@ -171,6 +172,41 @@ sudo swapon /mnt/.swapfile                               # Enable swap temporari
 You can also define this swap file in your configuration, which is the preferred long-term method (explained below).
 
 ---
+
+#### SETUP 2
+In this setup, I’ll be using the following partition layout:
+
+| Number | Type             | Size                 | Label |
+| ------ | ---------------- | -------------------- | ----- |
+| 1      | EFI System       | 1 GiB / 512 MiB      | NIXBOOT  |
+| 2      | Linux Filesystem | Remaining disk space | NIXROOT  |
+
+However, here we'll be using btrfs insead of ext4, and set up subvolumes accordingly. feel free to change the layout as you see fit.
+
+The steps until cfdisk partitioning are the same, after which we'll label and format the parititions for btrfs.
+
+```bash
+mkfs.vfat -F 32 -n NIXBOOT /dev/nvme0n1p1
+mkfs.btrfs -f -L NIXROOT /dev/nvme0n1p2
+```
+
+Now, mount the partition and create the subvolumes:
+```bash
+mount /dev/sdX2 /mnt
+btrfs subvolume create /mnt/@
+btrfs subvolume create /mnt/@nix
+btrfs subvolume create /mnt/@home
+umount /mnt
+```
+
+Mount the subvolumes:
+```bash
+mount -o compress=zstd,noatime,subvol=@ /dev/disk/by-label/NIXROOT /mnt
+mkdir -p /mnt/{boot,nix,home}
+mount -o compress=zstd,noatime,subvol=@nix /dev/disk/by-label/NIXROOT /mnt/nix
+mount -o compress=zstd,noatime,subvol=@home /dev/disk/by-label/NIXROOT /mnt/home
+mount /dev/disk/by-label/NIXBOOT /mnt/boot
+```
 
 ### ❄️ Config Generation and Installation
 
